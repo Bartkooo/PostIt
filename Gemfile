@@ -7,6 +7,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.6"
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'jquery-rails'
+gem 'sass-rails'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

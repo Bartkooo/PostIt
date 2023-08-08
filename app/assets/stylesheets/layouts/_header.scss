@@ -1,0 +1,15 @@
+@import "mixins/media";
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  justify-content: space-between;
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-l);
+  background-color: var(--color-glint);
+
+  @include media(tabletAndUp) {
+    margin-bottom: var(--space-xl);
+  }
+}
