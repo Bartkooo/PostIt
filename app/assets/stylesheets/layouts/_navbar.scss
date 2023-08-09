@@ -76,10 +76,12 @@
       margin-right: 0.125em;
       background-color: var(--color-text-header);
       border-radius: 0.5rem;
+      transition-duration: 1.5s;
 
       &::before,
       &::after {
         right: 0;
+        transition-duration: .5s;
         transition-property: margin, transform;
         display: block;
         content: "";
@@ -106,6 +108,7 @@
 
   &__checkbox:checked~&__toggle
   &__toggle-icon {
+    transition-duration: .3s;
     background-color: transparent;
   }
 
@@ -119,10 +122,12 @@
   &__checkbox:checked~&__toggle
   &__toggle-icon::before {
     transform: rotate(45deg);
+    transition-duration: .7s;
   }
 
   &__checkbox:checked~&__toggle
   &__toggle-icon::after {
     transform: rotate(-45deg);
+    transition-duration: .7s;
   }
 }
