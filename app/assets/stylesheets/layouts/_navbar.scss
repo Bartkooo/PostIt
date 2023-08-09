@@ -19,6 +19,10 @@
     margin-bottom: var(--space-xxxl);
   }
 
+  & > h1 > span {
+    color: var(--color-secondary-rotate);
+  }
+
   &--active {
     background-color: var(--color-white);
     box-shadow: var(--shadow-large);
@@ -58,7 +62,8 @@
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 4px;
-      text-decoration-color: var(--color-tertiary);
+      text-decoration-color: var(--color-secondary-rotate);
+      cursor: pointer;
     }
   }
 
