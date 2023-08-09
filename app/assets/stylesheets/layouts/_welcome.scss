@@ -1,0 +1,23 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    &-title {
+      font-size: var(--font-size-xxxxl);
+    }
+  }
+
+  &__text > h1 {
+    margin-bottom: .7rem;
+  }
+}
