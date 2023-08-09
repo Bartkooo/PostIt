@@ -14,7 +14,7 @@
   transition: background-color 200ms ease,box-shadow 250ms ease;
 
   @include media(tabletAndUp) {
-    lex-direction: row;
+    flex-direction: row;
     padding: var(--space-m);
     margin-bottom: var(--space-xxxl);
   }
@@ -104,24 +104,24 @@
     display: flex;
   }
 
-  &__checkbox:checked~&__toggle,
+  &__checkbox:checked~&__toggle
   &__toggle-icon {
     background-color: transparent;
   }
 
-  &__checkbox:checked~&__toggle,
+  &__checkbox:checked~&__toggle
   &__toggle-icon::before,
-  &__checkbox:checked~&__toggle,
+  &__checkbox:checked~&__toggle
   &__toggle-icon::after {
     margin-top: 0;
   }
 
-  &__checkbox:checked~&__toggle,
+  &__checkbox:checked~&__toggle
   &__toggle-icon::before {
     transform: rotate(45deg);
   }
 
-  &__checkbox:checked~&__toggle,
+  &__checkbox:checked~&__toggle
   &__toggle-icon::after {
     transform: rotate(-45deg);
   }
