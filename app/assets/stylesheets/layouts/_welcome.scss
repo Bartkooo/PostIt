@@ -15,6 +15,10 @@
     &-title {
       font-size: var(--font-size-xxxxl);
     }
+
+    &-title > span {
+      color: var(--color-secondary-rotate);
+    }
   }
 
   &__text > h1 {
