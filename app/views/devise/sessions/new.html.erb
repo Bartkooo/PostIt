@@ -5,6 +5,9 @@
   </div>
   <div class='form__fields'>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= content_tag(:div, flash[:error], class:'error-message', :id => "flash_error") if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], class:'error-message', :id => "flash_notice") if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], class:'error-message', :id => "flash_alert") if flash[:alert] %>
 
       <div class='form__fields-data'>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form__field" %>
