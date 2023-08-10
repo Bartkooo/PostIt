@@ -76,3 +76,11 @@ a {
     color: var(--color-primary-rotate);
   }
 }
+
+hr {
+  border: 0;
+  width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-text-body), rgba(0, 0, 0, 0));
+  height: 1px;
+  margin: 1rem 0;
+}

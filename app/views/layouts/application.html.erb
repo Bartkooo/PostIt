@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <% unless controller_name == "welcome" %>
-      <%= render 'layouts/navbar' %>
-    <% end %>
+    <%= render 'layouts/navbar' %>
     <div class="container">
       <%= yield %>
     </div>
