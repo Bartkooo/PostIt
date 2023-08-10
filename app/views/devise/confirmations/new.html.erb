@@ -5,6 +5,7 @@
   </div>
   <div class='form__fields'>
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
       <%= render "devise/shared/error_messages", class:'error-message', resource: resource %>
 
       <div class='form__fields-data'>
@@ -12,13 +13,13 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Resend confirmation instructions", class:'btn btn--secondary form__field-btn2' %>
+        <%= f.submit "Resend confirmation info", class:'btn btn--secondary form__field-btn' %>
       </div>
     <% end %>
 
     <hr>
 
-    <div>
+    <div class='form__links'>
       <%= render "devise/shared/links" %>
     </div>
   </div>

@@ -39,7 +39,6 @@
   }
 
   &__fields {
-    padding: 1rem;
     width: 17rem;
     display: flex;
     flex-direction: column;
@@ -70,5 +69,9 @@
       width: 17rem;
       margin: .3rem 0;
     }
+  }
+
+  &__links {
+    width: 100%;
   }
 }
