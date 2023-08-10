@@ -58,7 +58,12 @@
     padding-left: 1rem;
     border-radius: var(--border-radius);
     border: var(--border);
-    box-shadow: var(--shadow-large);
+    outline: none;
+    transition: box-shadow 250ms;
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-secondary-rotate);
+    }
 
     &-btn {
       height: 3rem;
