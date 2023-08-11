@@ -12,6 +12,7 @@
   padding: var(--space-xs);
   margin-bottom: var(--space-xxl);
   transition: background-color 200ms ease,box-shadow 250ms ease;
+  box-shadow: var(--shadow-small);
 
   @include media(tabletAndUp) {
     flex-direction: row;

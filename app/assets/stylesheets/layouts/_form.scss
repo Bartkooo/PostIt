@@ -8,9 +8,14 @@
   align-items: center;
   flex-direction: column;
 
+  &-withoutlogo {
+    height: 100%;
+  }
+  
   @include media(tabletAndUp) {
     flex-direction: row;
   }
+
 
   &__logo {
     width: 17rem;
