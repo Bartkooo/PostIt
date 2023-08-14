@@ -5,4 +5,9 @@
   padding: var(--space-xs);
   border-radius: var(--border-radius);
   margin-bottom: .5rem;
+
+  &-green {
+    color: var(--color-secondary);
+    background-color: var(--color-secondary-bg);
+  }
 }
