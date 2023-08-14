@@ -1,13 +1,14 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>User:</strong>
-    <%= post.user.first_name %>
-    <%= post.user.last_name %>
-  </p>
+<div id="<%= dom_id post %>" class='post'>
+  <div class='post__user'>
+    <div class='profile-img profile-img-small'></div>
+    <div class='post__user-name'>
+      <%= post.user.first_name %>
+      <%= post.user.last_name %>
+    </div>
+  </div>
 
-  <p>
-    <strong>Body:</strong>
+  <div class='post__body'>
     <%= post.body %>
-  </p>
+  </div>
 
 </div>

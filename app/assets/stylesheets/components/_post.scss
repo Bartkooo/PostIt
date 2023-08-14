@@ -2,24 +2,34 @@
 
 .post {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: var(--space-s);
 
   background-color: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-small);
   margin-bottom: var(--space-m);
-  padding: var(--space-xs);
+  padding: var(--space-s);
 
   @include media(tabletAndUp) {
     padding: var(--space-xs) var(--space-m);
   }
 
-  &__actions {
+  &__user {
     display: flex;
-    flex: 0 0 auto;
-    align-self: flex-start;
-    gap: var(--space-xs);
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    &-name {
+      margin-left: 1rem;
+      font-size: var(--font-size-l);
+    }
+  }
+
+  &__body {
+    width: 100%;
   }
 }
