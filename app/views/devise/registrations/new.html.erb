@@ -8,6 +8,10 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class='form__fields-data'>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: "First name", class:"form__field" %>
+
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", placeholder: "Last name", class:"form__field" %>
+
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form__field" %>
 
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password", class:"form__field" %>
