@@ -11,10 +11,10 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-        <%= f.password_field :password, autocomplete: "new-password", placeholder:'Password', class:'form__field', style:'margin-bottom: 0;' %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder:'New password', class:'form__field', style:'margin-bottom: 0;' %>
         <i style='color: var(--color-text-muted); font-size: var(--font-size-xs);'>leave blank if you don't want to change it</i><br />
 
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'New password', class:'form__field' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'New password confirmation', class:'form__field' %>
 
         <%= f.password_field :current_password, autocomplete: "current-password", placeholder:'Current password', class:'form__field' %>
       </div>
