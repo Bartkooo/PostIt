@@ -41,11 +41,11 @@
     width: 50%;
     text-align: center;
     padding: var(--space-xs);
-    color: var(--color-text-muted);
+    color: var(--color-text-header);
     cursor: pointer;
 
     &:hover {
-      color: var(--color-text-header);
+      color: var(--color-text-muted);
     }
   }
 
