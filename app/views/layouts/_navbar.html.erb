@@ -7,13 +7,13 @@
       </span>
       <span class='visually-hidden'>Menu</span>
     </label>
-      <div class='navbar__links'>
-        <%= link_to 'Home', root_path, class:'navbar__link' %>
-        <%= link_to 'Profile', user_path(current_user), class:'navbar__link' %>
-        <%= link_to 'Settings', edit_user_registration_path, class:'navbar__link' %>
-        <a class='navbar__link'>
-          <%= link_to 'Log out', destroy_user_session_path, class:'btn btn--primary', method: :delete  %>
-        </a>
-      </div>
+    <div class='navbar__links'>
+      <%= link_to 'Home', root_path, class:'navbar__link' %>
+      <%= link_to 'Profile', user_path(current_user), class:'navbar__link' %>
+      <%= link_to 'Settings', edit_user_registration_path, class:'navbar__link' %>
+      <a class='navbar__link'>
+        <%= link_to 'Log out', destroy_user_session_path, class:'btn btn--primary', method: :delete  %>
+      </a>
+    </div>
   </header>
 <% end %>
