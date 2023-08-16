@@ -4,8 +4,12 @@
     <div class='post__user-name'>
       <%= post.user.first_name %>
       <%= post.user.last_name %>
+      <div class='post__date'>
+        <%= time_ago_in_words(post.created_at) %>
+      </div>
     </div>
   </div>
+
 
   <div class='post__body'>
     <%= post.body %>

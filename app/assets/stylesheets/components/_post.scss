@@ -25,6 +25,11 @@
     }
   }
 
+  &__date {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+  }
+
   &__body {
     width: 100%;
     padding: 0 var(--space-s);
