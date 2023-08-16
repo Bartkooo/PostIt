@@ -1,7 +1,7 @@
 <%= link_to "New post", new_post_path %>
 
 <div id="posts">
-  <% @posts.each do |post| %>
+  <% @posts.reverse_each do |post| %>
     <%= render post %>
   <% end %>
 </div>
