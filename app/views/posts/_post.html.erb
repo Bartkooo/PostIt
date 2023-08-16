@@ -2,8 +2,8 @@
   <div class='post__user'>
     <div class='profile-img profile-img-small'></div>
     <div class='post__user-name'>
-      <%= post.user.first_name %>
-      <%= post.user.last_name %>
+      <%= link_to post.user.first_name, user_path(post.user), style:'color: var(--color-text-header);' %>
+      <%= link_to post.user.last_name, user_path(post.user), style:'color: var(--color-text-header);' %>
       <div class='post__date'>
         <%= time_ago_in_words(post.created_at) %>
       </div>
