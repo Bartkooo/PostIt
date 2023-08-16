@@ -1,6 +1,18 @@
 <%= form_with(model: post) do |form| %>
+  <div class='post-form'>
+    <div class='profile-img profile-img-small'></div>
+
+    <div style='width: 100%;'>
+      <%= form.text_field :body, :required => 'required', class:'post-form__input', placeholder:'What is on your mind?' %>
+    </div>
+
+    <div>
+      <%= form.submit 'Submit', class:'btn btn--secondary btn--fitted' %>
+    </div>
+  </div>
+
   <% if post.errors.any? %>
-    <div style="color: red">
+    <div class='error-message'>
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
@@ -10,13 +22,4 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

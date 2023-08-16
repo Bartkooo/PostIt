@@ -1,0 +1,25 @@
+.post-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: var(--space-s);
+  gap: var(--space-s);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-small);
+  margin-bottom: var(--space-m);
+
+  &__input {
+    height: 3rem;
+    width: 100%;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: 0 0.5rem;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-secondary-rotate);
+    }
+  }
+}

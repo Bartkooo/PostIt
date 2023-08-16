@@ -1,11 +1,16 @@
 .profile-img {
-  width: 10rem;
-  height: 10rem;
-  background-color: rgb(46, 131, 29);
-  border-radius: 100%;
+
+  &-normal {
+    background-color: var(--color-secondary);
+    border-radius: 100%;
+    width: 10rem;
+    height: 10rem;
+  }
 
   &-small {
-    width: 3rem;
+    background-color: var(--color-secondary);
+    border-radius: 100%;
+    min-width: 3rem;
     height: 3rem;
   }
 }
