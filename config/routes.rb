@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users, only: [:show]
+  get 'invitations/update'
+  get 'invitations/create'
+  get 'invitations/destroy'
 end

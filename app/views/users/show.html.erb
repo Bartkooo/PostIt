@@ -4,9 +4,44 @@
     <div class='profile-name'>
       <%= @user.first_name %>
       <%= @user.last_name %>
+      <% if signed_in? && !Invitation.reacted?(current_user.id, @user.id) && current_user != @user %>
+        <td> <%= link_to 'Send Invitation',
+          invitations_create_path(ids: {id1: current_user.id, id2: @user.id})
+        %></td>
+      <% end %>
     </div>
   </div>
 </div>
+
+<h3>Friends of <strong> <%= @user.first_name %> </strong> </h3>
+
+<ol>
+  <% @user.friends.each do |friend| %>
+    <li>
+      <%= friend.first_name %>
+      <% if @user == current_user %>
+        <%= link_to 'Unfriend',
+        invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id))  %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<% if @user == current_user %>
+  <h3> These people wants to be friend with <strong> <%= @user.first_name %> </strong> </h3>
+
+  <ol>
+    <% @user.pending_invitations.each do |invitation| %>
+      <li>
+        <%= User.find(invitation.user_id).first_name %>
+        <%= link_to 'Accept Invitation',
+        invitations_update_path(invitation_id: invitation.id) %>
+        <%= link_to 'Reject Invitation',
+        invitations_destroy_path(invitation_id: invitation.id) %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
 
 <div id="posts">
   <% @posts.reverse_each do |post| %>
