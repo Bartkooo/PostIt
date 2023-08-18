@@ -7,6 +7,13 @@
     height: 10rem;
   }
 
+  &-medium {
+    background-color: var(--color-secondary);
+    border-radius: 100%;
+    width: 7rem;
+    height: 7rem;
+  }
+
   &-small {
     background-color: var(--color-secondary);
     border-radius: 100%;

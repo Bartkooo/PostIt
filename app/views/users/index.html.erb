@@ -1,0 +1,16 @@
+<div class='users_list'>
+  <% @users.each do |user| %>
+    <div class='user'>
+      <div class='profile-img-medium'></div>
+      <div class='user__name'>
+        <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
+        <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
+      </div>
+      <% if signed_in? && !Invitation.reacted?(current_user.id, user.id) && current_user != user %>
+        <%= link_to 'Add Friend', invitations_create_path(ids: {id1: current_user.id, id2: user.id}) %>
+      <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) %>
+        <div style='color: var(--color-text-muted);'>Friend</div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
