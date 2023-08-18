@@ -7,9 +7,9 @@
         <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
       </div>
       <% if signed_in? && !Invitation.reacted?(current_user.id, user.id) && current_user != user %>
-        <%= link_to 'Add Friend', invitations_create_path(ids: {id1: current_user.id, id2: user.id}) %>
+        <%= link_to 'Add Friend', invitations_create_path(ids: {id1: current_user.id, id2: user.id}), class:'btn btn--secondary' %>
       <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) %>
-        <div style='color: var(--color-text-muted);'>Friend</div>
+        <div class='btn btn--muted'>Friend</div>
       <% end %>
     </div>
   <% end %>

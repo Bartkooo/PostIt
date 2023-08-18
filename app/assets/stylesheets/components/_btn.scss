@@ -70,6 +70,11 @@
     }
   }
 
+  &--muted {
+    color: var(--color-text-muted);
+    background-color: var(--color-grey-light);
+  }
+
   &--large {
     font-size: var(--font-size-l);
     padding: var(--space-s) var(--space-xl);
