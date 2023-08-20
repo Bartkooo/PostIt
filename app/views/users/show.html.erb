@@ -13,9 +13,9 @@
   </div>
 </div>
 
-<h3>Friends of <strong> <%= @user.first_name %> </strong> </h3>
+<h3>Friends (<%= @user.friends.length %>) </h3>
 
-<ol>
+<ul>
   <% @user.friends.each do |friend| %>
     <li>
       <%= friend.first_name %>
@@ -27,8 +27,8 @@
   <% end %>
 </ol>
 
-<% if @user == current_user %>
-  <h3> These people wants to be friend with <strong> <%= @user.first_name %> </strong> </h3>
+<% if @user == current_user && @user.pending_invitations.any? %>
+  <h3> Invites: </h3>
 
   <ol>
     <% @user.pending_invitations.each do |invitation| %>
