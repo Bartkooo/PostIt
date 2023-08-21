@@ -8,7 +8,11 @@
       </div>
       <% if signed_in? && !Invitation.reacted?(current_user.id, user.id) && current_user != user %>
         <%= link_to 'Add Friend', invitations_create_path(ids: {id1: current_user.id, id2: user.id}), class:'btn btn--secondary' %>
-      <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) %>
+      <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) && !Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
+        <div class='btn btn--muted'>Invited |
+        <%= link_to 'X', invitations_destroy_path(invitation_id: Invitation.find_invitation(current_user.id, user.id)) %>
+        </div>
+      <% elsif signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user  %>
         <div class='btn btn--muted'>Friend</div>
       <% end %>
     </div>
