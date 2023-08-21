@@ -13,14 +13,14 @@
 
       <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) && !Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
 
-        <div class='btn btn--muted'>Invited |
+        <div class='btn btn--muted'>Pending |
         <%= link_to 'X', invitations_destroy_path(invitation_id: Invitation.find_invitation(current_user.id, user.id)) %>
         </div>
 
       <% elsif signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user  %>
 
         <div class='btn btn--muted'>Friend</div>
-        
+
       <% end %>
     </div>
   <% end %>
