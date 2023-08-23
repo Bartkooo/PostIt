@@ -28,4 +28,15 @@
       align-items: center;
     }
   }
+
+  &-friends {
+    padding: var(--space-s);
+    gap: var(--space-s);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-small);
+
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 }

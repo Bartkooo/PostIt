@@ -13,35 +13,41 @@
   </div>
 </div>
 
-<h3>Friends (<%= @user.friends.count %>) </h3>
+<div class='profile-friends'>
+  <h3>Friends (<%= @user.friends.count %>) </h3>
 
-<ul>
-  <% @user.friends.each do |friend| %>
-    <li>
-      <%= friend.first_name %>
-      <% if @user == current_user %>
-        <%= link_to 'Unfriend',
-        invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id))  %>
+  <% if @user == current_user && @user.pending_invitations.any? %>
+    <h3> Invites: </h3>
+
+    <div class='user-list'>
+      <% @user.pending_invitations.each do |invitation| %>
+        <div>
+          <%= User.find(invitation.user_id).first_name %>
+          <%= link_to 'Accept Invitation',
+          invitations_update_path(invitation_id: invitation.id) %>
+          <%= link_to 'Reject Invitation',
+          invitations_destroy_path(invitation_id: invitation.id) %>
+        </div>
       <% end %>
-    </li>
+    </div>
   <% end %>
-</ol>
 
-<% if @user == current_user && @user.pending_invitations.any? %>
-  <h3> Invites: </h3>
-
-  <ol>
-    <% @user.pending_invitations.each do |invitation| %>
-      <li>
-        <%= User.find(invitation.user_id).first_name %>
-        <%= link_to 'Accept Invitation',
-        invitations_update_path(invitation_id: invitation.id) %>
-        <%= link_to 'Reject Invitation',
-        invitations_destroy_path(invitation_id: invitation.id) %>
-      </li>
+  <div class='users_list users_list-line'>
+    <% @user.friends.each do |friend| %>
+      <div class='user user-onprofile'>
+        <div class='profile-img-medium'></div>
+        <div class='user__name'>
+          <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
+          <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
+        </div>
+        <% if @user == current_user %>
+          <%= link_to 'Unfriend',
+          invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id)), class:'btn btn--primary' %>
+        <% end %>
+      </div>
     <% end %>
-  </ol>
-<% end %>
+  </div>
+</div>
 
 <div id="posts">
   <% @posts.reverse_each do |post| %>

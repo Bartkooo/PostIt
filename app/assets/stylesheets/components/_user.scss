@@ -1,7 +1,15 @@
+@import "mixins/media";
+
 .users_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+
+  &-line {
+    height: 15rem;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
 }
 
 .user {
@@ -12,8 +20,8 @@
   flex-direction: column;
   align-items: center;
 
-  padding-top: .5rem;
-  margin: 1rem;
+  padding: .5rem;
+  margin: .5rem;
 
   box-shadow: var(--shadow-large);
   border: var(--border);
