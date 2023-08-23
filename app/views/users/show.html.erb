@@ -15,26 +15,9 @@
 
 <div class='profile-friends'>
   <h3>Friends (<%= @user.friends.count %>) </h3>
-
-  <% if @user == current_user && @user.pending_invitations.any? %>
-    <h3> Invites: </h3>
-
-    <div class='user-list'>
-      <% @user.pending_invitations.each do |invitation| %>
-        <div>
-          <%= User.find(invitation.user_id).first_name %>
-          <%= link_to 'Accept Invitation',
-          invitations_update_path(invitation_id: invitation.id) %>
-          <%= link_to 'Reject Invitation',
-          invitations_destroy_path(invitation_id: invitation.id) %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
   <div class='users_list users_list-line'>
     <% @user.friends.each do |friend| %>
-      <div class='user user-onprofile'>
+      <div class='user'>
         <div class='profile-img-medium'></div>
         <div class='user__name'>
           <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
@@ -48,6 +31,30 @@
     <% end %>
   </div>
 </div>
+
+<% if @user == current_user && @user.pending_invitations.any? %>
+  <div class='profile-friends'>
+    <h3> Invites: </h3>
+
+    <div class='user-list users_list-line''>
+      <% @user.pending_invitations.each do |invitation| %>
+        <div class='user'>
+          <div class='profile-img-medium'></div>
+          <div class='user__name'>
+            <%= User.find(invitation.user_id).first_name %>
+            <%= User.find(invitation.user_id).last_name %>
+          </div>
+          <div style='display: flex;'>
+            <%= link_to 'Yes',
+            invitations_update_path(invitation_id: invitation.id), class:'btn btn--secondary' %>
+            <%= link_to 'No',
+            invitations_destroy_path(invitation_id: invitation.id), class: 'btn btn--primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <div id="posts">
   <% @posts.reverse_each do |post| %>
