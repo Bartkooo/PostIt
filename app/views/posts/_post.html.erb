@@ -12,11 +12,16 @@
 
 
   <div class='post__body'>
-    <%= post.body %>
+    <%= post.body %></br>
+    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
   </div>
 
   <div class='post__footer'>
-    <div class='post__action'>Like</div>
+    <% if signed_in? && !Like.liked?(current_user.id, post.id) %>
+      <%= link_to 'Like', likes_create_path(ids: {id1: current_user.id, id2: post.id}), class:'post__action' %>
+    <% elsif signed_in? && Like.liked?(current_user.id, post.id) %>
+      <%= link_to 'Unlike', likes_destroy_path(like_id: Like.find_like_id(current_user.id, post.id)), class:'post__action' %>
+    <% end %>
     <div class='post__line'></div>
     <%= link_to "Comment", post, class:'post__action' %>
   </div>
