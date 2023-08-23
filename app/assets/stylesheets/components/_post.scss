@@ -32,6 +32,14 @@
   &__body {
     width: 100%;
     padding: 0 var(--space-s);
+    display: flex;
+    flex-direction: column;
+
+    &-likes {
+      color: var(--color-text-muted);
+      margin-top: .7rem;
+      font-size: var(--font-size-s);
+    }
   }
 
   &__footer {
@@ -50,6 +58,10 @@
 
     &:hover {
       color: var(--color-text-muted);
+    }
+
+    &-clicked {
+      color: var(--color-secondary-rotate);
     }
   }
 
