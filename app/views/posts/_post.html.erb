@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>" class='post'>
+<div id="<%= dom_id(post) %>" class='post'>
   <div class='post__user'>
     <div class='profile-img profile-img-small'></div>
     <div class='post__user-name'>
@@ -23,9 +23,9 @@
 
   <div class='post__footer'>
     <% if signed_in? && !Like.liked?(current_user.id, post.id) %>
-      <%= link_to 'Like', likes_create_path(ids: {id1: current_user.id, id2: post.id}), class:'post__action' %>
+      <%= link_to 'Like', likes_create_path(ids: {id1: current_user.id, id2: post.id}, anchor: dom_id(post)), class:'post__action' %>
     <% elsif signed_in? && Like.liked?(current_user.id, post.id) %>
-      <%= link_to 'Unlike', likes_destroy_path(like_id: Like.find_like_id(current_user.id, post.id)), class:'post__action post__action-clicked' %>
+      <%= link_to 'Unlike', likes_destroy_path(like_id: Like.find_like_id(current_user.id, post.id), anchor: dom_id(post)), class:'post__action post__action-clicked' %>
     <% end %>
     <div class='post__line'></div>
     <%= link_to "Comment", post, class:'post__action' %>
