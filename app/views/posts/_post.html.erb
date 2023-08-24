@@ -13,10 +13,12 @@
 
   <div class='post__body'>
     <%= post.body %>
-    <div class='post__body-likes'>
-      <%= post.likes.count %>
-      <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
-    </div>
+    <% if post.likes.count > 0 %>
+      <div class='post__body-likes'>
+        <%= post.likes.count %>
+        <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
+      </div>
+    <% end %>
   </div>
 
   <div class='post__footer'>
