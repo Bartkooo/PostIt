@@ -33,7 +33,7 @@
   &__links {
     display: none;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-around;
     gap: var(--space-xs);
     flex-basis: 100%;
 
