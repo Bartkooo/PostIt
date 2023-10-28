@@ -1,13 +1,16 @@
 <div id="<%= dom_id(post) %>" class='post'>
-  <div class='post__user'>
-    <div class='profile-img profile-img-small'></div>
-    <div class='post__user-name'>
-      <%= link_to post.user.first_name, user_path(post.user), style:'color: var(--color-text-header);' %>
-      <%= link_to post.user.last_name, user_path(post.user), style:'color: var(--color-text-header);' %>
-      <div class='post__date'>
-        <%= time_ago_in_words(post.created_at) %>
+  <div class='post__header'>
+    <div class='post__user'>
+      <div class='profile-img profile-img-small'></div>
+      <div class='post__user-name'>
+        <%= link_to post.user.first_name, user_path(post.user), style:'color: var(--color-text-header);' %>
+        <%= link_to post.user.last_name, user_path(post.user), style:'color: var(--color-text-header);' %>
+        <div class='post__date'>
+          <%= time_ago_in_words(post.created_at) %>
+        </div>
       </div>
     </div>
+    <div class='post__options'>&#8230;</div>
   </div>
 
 
