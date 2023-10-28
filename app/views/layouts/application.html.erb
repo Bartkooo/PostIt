@@ -14,9 +14,15 @@
     <%= render 'layouts/navbar' %>
     <div class="container">
       <% flash.each do |type, msg| %>
-        <div class='error-message'>
-          <%= msg %>
-        </div>
+        <% if alert %>
+          <div class='error-message'>
+            <%= msg %>
+          </div>
+        <% elsif notice %>
+          <div class='error-message error-message-green'>
+            <%= msg %>
+          </div>
+        <% end %>
       <% end %>
       <%= yield %>
     </div>
