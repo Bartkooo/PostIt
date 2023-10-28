@@ -12,19 +12,17 @@
     </div>
     <%# <div class="post__options">&#8230;</div> %>
     <div data-controller="dropdown" class="dropdown">
-      <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">Options</button>
+      <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class='dropdown__button'>&#8942;</button>
 
       <div
         data-dropdown-target="menu"
         class="dropdown__menu hidden"
-        data-transition-enter-from="opacity-0 scale-95"
-        data-transition-enter-to="opacity-100 scale-100"
-        data-transition-leave-from="opacity-100 scale-100"
-        data-transition-leave-to="opacity-0 scale-95"
       >
-        <a href="#" data-action="dropdown#toggle">Account settings</a>
-        <a href="#" data-action="dropdown#toggle">Support</a>
-        <a href="#" data-action="dropdown#toggle">License</a>
+        <% if post.user == current_user %>
+          <div data-action="dropdown#toggle"><%= link_to "Edit", edit_post_path(post), class:'dropdown__menu-link' %></div>
+          <div data-action="dropdown#toggle"><%= link_to "Delete", post, data: { turbo_method: :delete }, class:'dropdown__menu-link' %></div>
+        <% end %>
+        <a href="#" data-action="dropdown#toggle" class='dropdown__menu-link'>License</a>
       </div>
     </div>
   </div>

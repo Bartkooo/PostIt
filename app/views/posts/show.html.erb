@@ -1,7 +1,2 @@
 <%= link_to raw("&#8592; Back to posts"), root_path, class:'help-link' %>
 <%= render @post %>
-
-<% if @post.user == current_user %>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= button_to "Destroy this post", @post, method: :delete %>
-<% end %>
