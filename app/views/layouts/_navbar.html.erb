@@ -8,10 +8,10 @@
       <span class='visually-hidden'>Menu</span>
     </label>
     <div class='navbar__links'>
-      <%= link_to '<img src="/home1.svg" style="height: 1.5rem;" />'.html_safe, root_path, class:'navbar__link' %>
-      <%= link_to '<img src="/users.svg" style="height: 1.9rem;" />'.html_safe, users_path, class:'navbar__link' %>
-      <%= link_to '<img src="/profile.svg" style="height: 1.5rem;" />'.html_safe, user_path(current_user), class:'navbar__link' %>
-      <%= link_to '<img src="/settings.svg" style="height: 2rem;" />'.html_safe, edit_user_registration_path, class:'navbar__link' %>
+      <%= link_to 'Home'.html_safe, root_path, class:'navbar__link' %>
+      <%= link_to 'Users'.html_safe, users_path, class:'navbar__link' %>
+      <%= link_to 'Profile'.html_safe, user_path(current_user), class:'navbar__link' %>
+      <%= link_to 'Settings'.html_safe, edit_user_registration_path, class:'navbar__link' %>
       <a class='navbar__link'>
         <%= link_to 'Log out', destroy_user_session_path, class:'btn btn--primary', method: :delete  %>
       </a>
