@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :require_appropriate_user, only: [:edit, :update, :destroy]
 
   # GET /posts or /posts.json
   def index
@@ -71,4 +72,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:user_id, :body)
     end
+
+    def require_appropriate_user
+      if @post.user != current_user
+        flash[:alert] = "You must be creator of that article to handle that operation."
+        redirect_to @post
+     end
+  end
 end
