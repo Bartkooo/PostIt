@@ -1,0 +1,11 @@
+.dropdown {
+  position: relative;
+
+  &__menu {
+    transform-origin: top right;
+    position: absolute;
+    right: 0;
+  }
+}
+
+
