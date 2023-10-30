@@ -2,9 +2,15 @@
   width: 100%;
   color: var(--color-primary);
   background-color: var(--color-primary-bg);
-  padding: var(--space-xs);
+  padding: var(--space-m);
   border-radius: var(--border-radius);
   margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__close {
+    cursor: pointer;
+  }
 
   &-green {
     color: var(--color-secondary);

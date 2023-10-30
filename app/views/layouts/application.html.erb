@@ -15,12 +15,14 @@
     <div class="container">
       <% flash.each do |type, msg| %>
         <% if alert %>
-          <div class='error-message'>
+          <div class='error-message' data-controller="removals">
             <%= msg %>
+            <div data-action="click->removals#remove" class="error-message__close">&times;</div>
           </div>
         <% elsif notice %>
-          <div class='error-message error-message-green'>
+          <div class='error-message error-message-green' data-controller="removals">
             <%= msg %>
+            <div data-action="click->removals#remove" class="error-message__close">&times;</div>
           </div>
         <% end %>
       <% end %>
