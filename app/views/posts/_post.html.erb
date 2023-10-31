@@ -10,7 +10,6 @@
         </div>
       </div>
     </div>
-    <%# <div class="post__options">&#8230;</div> %>
     <div data-controller="dropdown" class="dropdown">
       <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class='dropdown__button'>&#8942;</button>
 
@@ -28,8 +27,11 @@
   </div>
 
 
-  <div class='post__body'>
-    <%= post.body %>
+  <div class='post__body' data-controller='read-more' data-read-more-toggle-class='post__body-text'>
+    <div class='post__body-text' data-read-more-target='text'><%= post.body %></div>
+    <% if post.body.length > 430 %>
+      <div class='help-link' data-action="click->read-more#update" data-read-more-target='button'>Read more...</div>
+    <% end %>
     <% if post.likes.count > 0 %>
       <div class='post__body-likes'>
         <%= post.likes.count %>

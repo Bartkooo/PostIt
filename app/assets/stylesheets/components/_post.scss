@@ -47,6 +47,14 @@
     display: flex;
     flex-direction: column;
 
+    &-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 10;
+      -webkit-box-orient: vertical;
+    }
+
     &-likes {
       color: var(--color-text-muted);
       margin-top: .7rem;
