@@ -1,7 +1,7 @@
 <%= form_for [ @post, @comment ] do |form| %>
 
   <div class='post-form'>
-    <%= form.text_field :body, class:'post-form__input' %>
+    <%= form.text_field :body, class:'post-form__input post-form__input-full' %>
     <div>
       <%= form.submit 'Submit', class:'btn btn--secondary btn--fitted' %>
     </div>
