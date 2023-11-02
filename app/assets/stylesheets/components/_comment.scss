@@ -8,6 +8,8 @@
     box-shadow: var(--shadow-small);
     margin-bottom: var(--space-m);
     padding: var(--space-xs);
+    display: flex;
+    gap: 1rem;
   }
 
   &-user {

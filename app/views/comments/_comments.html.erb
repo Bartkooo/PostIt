@@ -3,14 +3,27 @@
     <div class='profile-img-small'></div>
     <div class='comment-container'>
       <div>
-        <%= link_to comment.user.first_name, user_path(comment.user), class:'comment-user' %>
-        <%= link_to comment.user.last_name, user_path(comment.user), class:'comment-user' %>
-        <span class='comment-date'><%= time_ago_in_words(comment.created_at) %></span>
+        <div>
+          <%= link_to comment.user.first_name, user_path(comment.user), class:'comment-user' %>
+          <%= link_to comment.user.last_name, user_path(comment.user), class:'comment-user' %>
+          <span class='comment-date'><%= time_ago_in_words(comment.created_at) %></span>
+        </div>
+        <div><%= comment.body %></div>
       </div>
-      <div><%= comment.body %></div>
+
+      <div data-controller="dropdown" class="dropdown">
+        <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class='dropdown__button'>&#8942;</button>
+
+        <div
+          data-dropdown-target="menu"
+          class="dropdown__menu hidden"
+        >
+          <% if current_user.id == comment.user_id %>
+            <div data-action="dropdown#toggle"><%= link_to 'Delete', post_comment_path(comment.post, comment), data: { turbo_method: :delete }, class:'dropdown__menu-link' %></div>
+          <% end %>
+          <a data-action="dropdown#toggle" class='dropdown__menu-link'>Report</a>
+        </div>
+      </div>
     </div>
-    <% if current_user.id == comment.user_id %>
-      <%= link_to '', post_comment_path(comment.post, comment), data: { turbo_method: :delete }  %>
-    <% end %>
   </div>
 <% end %>
