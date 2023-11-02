@@ -1,0 +1,14 @@
+<% @post.comments.reverse_each do |comment| %>
+  <div class='comment'>
+    <div>
+      <div>
+        <%#= link_to comment.user.username, user_path(comment.user) %>
+        <span><%= time_ago_in_words(comment.created_at) %> ago</span>
+      </div>
+      <div><%= comment.body %></div>
+    </div>
+    <% if current_user.id == comment.user_id %>
+      <%= link_to '', post_comment_path(comment.post, comment), data: { turbo_method: :delete }  %>
+    <% end %>
+  </div>
+<% end %>

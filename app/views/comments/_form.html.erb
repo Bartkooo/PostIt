@@ -1,0 +1,10 @@
+<%= form_for [ @post, @comment ] do |form| %>
+
+  <div class='post-form'>
+    <%= form.text_field :body, class:'post-form__input' %>
+    <div>
+      <%= form.submit 'Submit', class:'btn btn--secondary btn--fitted' %>
+    </div>
+  </div>
+
+<% end %>
