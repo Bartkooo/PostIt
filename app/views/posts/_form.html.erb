@@ -1,10 +1,8 @@
 <%= form_with(model: post) do |form| %>
   <div class='post-form'>
-    <div class='profile-img profile-img-small'></div>
+    <div class='profile-img-small'></div>
 
-    <div style='width: 100%;'>
-      <%= form.text_field :body, :required => 'required', class:'post-form__input', placeholder:'What is on your mind?' %>
-    </div>
+    <%= form.text_field :body, :required => 'required', class:'post-form__input', placeholder:'What is on your mind?' %>
 
     <div>
       <%= form.submit 'Submit', class:'btn btn--secondary btn--fitted' %>
