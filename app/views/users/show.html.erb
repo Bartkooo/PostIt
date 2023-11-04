@@ -1,13 +1,13 @@
 <div class='profile'>
   <div class='profile-data'>
     <div class='profile-img-normal'></div>
-    <div class='profile-name'>
-      <%= @user.first_name %>
-      <%= @user.last_name %>
+    <div class='profile-name' style='display:flex; flex-direction:column; justify-content:center;'>
+      <div>
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </div>
       <% if signed_in? && !Invitation.reacted?(current_user.id, @user.id) && current_user != @user %>
-        <td> <%= link_to 'Invite',
-          invitations_create_path(ids: {id1: current_user.id, id2: @user.id})
-        %></td>
+        <%= link_to 'Add friend', invitations_create_path(ids: {id1: current_user.id, id2: @user.id}), class:'btn btn--secondary' %>
       <% end %>
     </div>
   </div>
@@ -45,9 +45,9 @@
             <%= User.find(invitation.user_id).last_name %>
           </div>
           <div style='display: flex;'>
-            <%= link_to 'Yes',
+            <%= link_to ("<div>&#10003;</div>").html_safe,
             invitations_update_path(invitation_id: invitation.id), class:'btn btn--secondary' %>
-            <%= link_to 'No',
+            <%= link_to 'X',
             invitations_destroy_path(invitation_id: invitation.id), class: 'btn btn--primary' %>
           </div>
         </div>
