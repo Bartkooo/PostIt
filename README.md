@@ -1,4 +1,6 @@
+```html
 <h1>Post<span style='color:green;'>It</span></h1>
+```
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
