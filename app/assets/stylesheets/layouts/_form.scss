@@ -11,9 +11,10 @@
   &-withoutlogo {
     height: 100%;
   }
-  
+
   @include media(tabletAndUp) {
     flex-direction: row;
+    gap: 3rem;
   }
 
 
