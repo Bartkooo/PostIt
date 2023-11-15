@@ -5,21 +5,23 @@
   </div>
 <% end %>
 
-<div class='users_list'>
-  <% @users.each do |user| %>
-    <div class='user'>
-      <div class='profile-img-small'></div>
-      <div class='user__data'>
-        <div class='user__name'>
-          <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
-          <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
+<% if @users != '' %>
+  <div class='users_list'>
+    <% @users.each do |user| %>
+      <div class='user'>
+        <div class='profile-img-small'></div>
+        <div class='user__data'>
+          <div class='user__name'>
+            <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
+            <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
+          </div>
+
+          <% if signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
+            <span class='user__friend'>Friend</span>
+          <% end %>
         </div>
 
-        <% if signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
-          <span class='user__friend'>Friend</span>
-        <% end %>
       </div>
-
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
