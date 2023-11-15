@@ -1,32 +1,25 @@
 <%= form_tag "/search", method: "GET" do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
+  <div class='search'>
+    <%= text_field_tag :search, params[:search], class:'search-input' %>
+    <%= submit_tag "Search", class:'material-symbols-outlined search-button' %>
+  </div>
 <% end %>
 
 <div class='users_list'>
   <% @users.each do |user| %>
     <div class='user'>
-      <div class='profile-img-medium'></div>
-      <div class='user__name'>
-        <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
-        <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
-      </div>
-
-      <% if signed_in? && !Invitation.reacted?(current_user.id, user.id) && current_user != user %>
-
-        <%= link_to 'Add Friend', invitations_create_path(ids: {id1: current_user.id, id2: user.id}), class:'btn btn--secondary' %>
-
-      <% elsif signed_in? && Invitation.reacted?(current_user.id, user.id) && !Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
-
-        <div class='btn btn--muted'>Pending |
-        <%= link_to 'X', invitations_destroy_path(invitation_id: Invitation.find_invitation(current_user.id, user.id)) %>
+      <div class='profile-img-small'></div>
+      <div class='user__data'>
+        <div class='user__name'>
+          <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
+          <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>
         </div>
 
-      <% elsif signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user  %>
+        <% if signed_in? && Invitation.confirmed_record?(current_user.id, user.id) && current_user != user %>
+          <span class='user__friend'>Friend</span>
+        <% end %>
+      </div>
 
-        <div class='btn btn--muted'>Friend</div>
-
-      <% end %>
     </div>
   <% end %>
 </div>
