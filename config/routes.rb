@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/notifications', to: 'notifications#index'
   get '/search', to: 'search#index'
   resources :posts
   resources :posts do

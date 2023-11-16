@@ -1,0 +1,23 @@
+<% if current_user.pending_invitations.any? %>
+  <div class='profile-friends'>
+    <h3> Invites: </h3>
+
+    <div class='user-list users_list-line''>
+      <% current_user.pending_invitations.each do |invitation| %>
+        <div class='user'>
+          <div class='profile-img-small'></div>
+          <div class='user__name'>
+            <%= User.find(invitation.user_id).first_name %>
+            <%= User.find(invitation.user_id).last_name %>
+          </div>
+          <div style='display: flex;'>
+            <%= link_to ("<div>&#10003;</div>").html_safe,
+            invitations_update_path(invitation_id: invitation.id), class:'btn btn--secondary' %>
+            <%= link_to 'X',
+            invitations_destroy_path(invitation_id: invitation.id), class: 'btn btn--primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
