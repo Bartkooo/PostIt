@@ -49,10 +49,6 @@
           <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
           <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
         </div>
-        <% if @user == current_user %>
-          <%= link_to 'Unfriend',
-          invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, friend.id)), class:'btn btn--primary' %>
-        <% end %>
       </div>
     <% end %>
   </div>
