@@ -13,8 +13,7 @@
       <% elsif signed_in? && Invitation.confirmed_record?(current_user.id, @user.id) && current_user != @user %>
 
         <div>
-          <span>Friend</span>
-          <%= link_to 'Unfriend', invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, current_user.id)) %>
+          <%= link_to 'Unfriend', invitations_destroy_path(invitation_id: Invitation.find_invitation(@user.id, current_user.id)), class:'btn btn--primary' %>
         </div>
 
       <% elsif signed_in? && Invitation.reacted?(current_user.id, @user.id) && !Invitation.confirmed_record?(current_user.id, @user.id) && current_user != @user %>
