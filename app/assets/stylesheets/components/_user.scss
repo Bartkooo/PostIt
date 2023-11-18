@@ -1,10 +1,20 @@
 @import "mixins/media";
 
+// OP - on profile
+
 .users_list {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: .5rem;
+
+  &__OP {
+    margin-top: .5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    grid-template-rows: repeat(auto-fit);
+    gap: .5rem;
+  }
 }
 
 .user {
@@ -19,14 +29,31 @@
 
   border-bottom: var(--border);
 
+  &__OP {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__data {
     display: flex;
     align-items: center;
     gap: .5rem;
+
+    &__OP {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__name {
     font-size: var(--font-size-l);
+
+    &__OP {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__friend {

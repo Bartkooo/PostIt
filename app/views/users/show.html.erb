@@ -41,12 +41,12 @@
 
 <div class='profile-friends'>
   <h3>Friends (<%= @user.friends.count %>) </h3>
-  <div class='users_list'>
-    <% @user.friends.each do |friend| %>
-      <div class='user'>
-        <div class="user__data">
-          <div class='profile-img-small'></div>
-          <div class='user__name'>
+  <div class='users_list__OP'>
+    <% @user.friends.last(6).reverse_each do |friend| %>
+      <div class='user__OP'>
+        <div class="user__data__OP">
+          <div class='profile-img-medium'></div>
+          <div class='user__name__OP'>
             <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
             <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
           </div>
