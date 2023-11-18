@@ -41,13 +41,15 @@
 
 <div class='profile-friends'>
   <h3>Friends (<%= @user.friends.count %>) </h3>
-  <div class='users_list users_list-line'>
+  <div class='users_list'>
     <% @user.friends.each do |friend| %>
       <div class='user'>
-        <div class='profile-img-small'></div>
-        <div class='user__name'>
-          <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
-          <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
+        <div class="user__data">
+          <div class='profile-img-small'></div>
+          <div class='user__name'>
+            <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
+            <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
+          </div>
         </div>
       </div>
     <% end %>
