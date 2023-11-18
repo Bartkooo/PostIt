@@ -9,9 +9,8 @@
 
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <p class='error-message' data-controller="removals">
+        <p class='error-message'>
           <%= message %>
-          <div data-action="click->removals#remove" class="error-message__close">&times;</div>
         </p>
       <% end %>
     </ul>
