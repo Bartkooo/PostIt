@@ -1,24 +1,33 @@
 .profile-img {
+  height: 100%;
+  position: relative;
+  top: 10px;
 
   &-normal {
-    background-color: var(--color-secondary);
+    background-color: var(--color-white);
     border-radius: 100%;
     width: 10rem;
     height: 10rem;
+    overflow: hidden;
+    border: var(--border);
   }
 
   &-medium {
-    background-color: var(--color-secondary);
+    background-color: var(--color-white);
     border-radius: 100%;
     width: 6rem;
     height: 6rem;
+    overflow: hidden;
+    border: var(--border);
   }
 
   &-small {
-    background-color: var(--color-secondary);
+    background-color: var(--color-white);
     border-radius: 100%;
     width: 3rem;
     min-width: 3rem;
     height: 3rem;
+    overflow: hidden;
+    border: var(--border);
   }
 }

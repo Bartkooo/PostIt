@@ -1,7 +1,9 @@
 <div class='users_list'>
   <% @users.each do |user| %>
     <div class='user'>
-      <div class='profile-img-small'></div>
+      <div class='profile-img-small'>
+        <%= image_tag 'avatar.png', class:'profile-img' %>
+      </div>
       <div class='user__name'>
         <%= link_to user.first_name, user_path(user), style:'color: var(--color-text-header);' %>
         <%= link_to user.last_name, user_path(user), style:'color: var(--color-text-header);' %>

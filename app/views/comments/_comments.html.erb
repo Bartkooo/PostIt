@@ -1,6 +1,8 @@
 <% @post.comments.reverse_each do |comment| %>
   <div class='comment'>
-    <div class='profile-img-small'></div>
+    <div class='profile-img-small'>
+      <%= image_tag 'avatar.png', class:'profile-img' %>
+    </div>
     <div class='comment-container'>
       <div>
         <div>

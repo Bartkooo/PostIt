@@ -1,6 +1,8 @@
 <div class='profile'>
   <div class='profile-data'>
-    <div class='profile-img-normal'></div>
+    <div class='profile-img-normal'>
+      <%= image_tag 'avatar.png', class:'profile-img' %>
+    </div>
     <div class='profile-name' style='display:flex; flex-direction:column; justify-content:center;'>
       <div>
         <%= @user.first_name %>
@@ -44,7 +46,9 @@
     <% @user.friends.last(6).reverse_each do |friend| %>
       <div class='user__OP'>
         <div class="user__data__OP">
-          <div class='profile-img-medium'></div>
+          <div class='profile-img-medium'>
+            <%= image_tag 'avatar.png', class:'profile-img' %>
+          </div>
           <div class='user__name__OP'>
             <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
             <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>

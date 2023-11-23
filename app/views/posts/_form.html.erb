@@ -1,6 +1,8 @@
 <%= form_with(model: post) do |form| %>
   <div class='post-form'>
-    <div class='profile-img-small'></div>
+    <div class='profile-img-small'>
+      <%= image_tag 'avatar.png', class:'profile-img' %>
+    </div>
 
     <%= form.text_field :body, :required => 'required', class:'post-form__input', placeholder:'What is on your mind?' %>
 

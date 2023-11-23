@@ -6,7 +6,9 @@
       <% current_user.pending_invitations.each do |invitation| %>
         <div class='user'>
           <div class='user__data'>
-            <div class='profile-img-small'></div>
+            <div class='profile-img-small'>
+              <%= image_tag 'avatar.png', class:'profile-img' %>
+            </div>
             <div class='user__name'>
               <%= User.find(invitation.user_id).first_name %>
               <%= User.find(invitation.user_id).last_name %>
