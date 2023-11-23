@@ -41,7 +41,13 @@
 </div>
 
 <div class='profile-friends'>
-  <h3>Friends (<%= @user.friends.count %>) </h3>
+  <div class='profile-friends-container'>
+    <%= link_to friends_path(id: @user.id) do %>
+      <div class='profile-friends-heading'>
+        Friends(<%= @user.friends.count %>)
+      </div>
+    <% end %>
+  </div>
   <div class='users_list__OP'>
     <% @user.friends.last(6).reverse_each do |friend| %>
       <div class='user__OP'>
