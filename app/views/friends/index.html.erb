@@ -1,7 +1,7 @@
 <h1><%= @user.first_name %>'s friends</h1>
 
 <div class='users_list'>
-  <% @friends.each do |friend| %>
+  <% @friends.reverse_each do |friend| %>
     <div class='user'>
       <div class='user__data'>
         <div class='profile-img-small'>
@@ -12,6 +12,10 @@
             <%= link_to friend.first_name, user_path(friend), style:'color: var(--color-text-header);' %>
             <%= link_to friend.last_name, user_path(friend), style:'color: var(--color-text-header);' %>
           </div>
+
+          <% if signed_in? && Invitation.confirmed_record?(current_user.id, friend.id) && current_user != friend %>
+            <span class='user__friend'>Friend</span>
+          <% end %>
         </div>
       </div>
     </div>
