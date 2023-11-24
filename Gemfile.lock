@@ -137,13 +137,15 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.6.1)
     nokogiri (1.15.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.3)
     public_suffix (5.0.3)
-    puma (5.6.6)
+    puma (5.6.7)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -231,6 +233,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-arm64-darwin)
+    sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -263,6 +266,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -273,7 +277,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   pg
-  puma (~> 5.0)
+  puma (~> 5.6.7)
   rails (~> 7.0.6)
   rails_12factor
   redis (~> 4.0)
