@@ -8,19 +8,19 @@
       <span class='visually-hidden'>Menu</span>
     </label>
     <div class='navbar__links'>
-      <%= link_to 'Home', root_path, class:'navbar__link' %>
+      <%= link_to image_tag('home.png'), root_path, class:'navbar__link' %>
       <%#= link_to 'Users', users_path, class:'navbar__link' %>
-      <%= link_to 'Search', search_path, class:'navbar__link' %>
+      <%= link_to image_tag('search.png'), search_path, class:'navbar__link' %>
       <div>
-        <%= link_to 'Notifications', notifications_path, class:'navbar__link' %>
+        <%= link_to image_tag('bell.png'), notifications_path, class:'navbar__link' %>
         <% if current_user.pending_invitations.any? %>
           <span class='notifications-count'><%= current_user.pending_invitations.count %></span>
         <% end %>
       </div>
-      <%= link_to 'Profile', user_path(current_user), class:'navbar__link' %>
-      <%= link_to 'Settings', edit_user_registration_path, class:'navbar__link' %>
+      <%= link_to image_tag('user.png'), user_path(current_user), class:'navbar__link' %>
+      <%= link_to image_tag('settings.png'), edit_user_registration_path, class:'navbar__link' %>
       <a class='navbar__link'>
-        <%= link_to 'Log out', destroy_user_session_path, class:'btn btn--primary', method: :delete  %>
+        <%= link_to image_tag('logout.png'), destroy_user_session_path, method: :delete  %>
       </a>
     </div>
   </header>
