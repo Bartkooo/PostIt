@@ -8,15 +8,30 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class='form__fields-data'>
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name", placeholder: "First name", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.text_field :first_name, autocomplete: "first-name", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :first_name, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
 
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name", placeholder: "Last name", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.text_field :last_name, autocomplete: "last-name", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :last_name, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
 
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.email_field :email, autocomplete: "email", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :email, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
 
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.password_field :password, autocomplete: "new-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :new_password, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
 
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "New password confirmation", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :password_confirmation, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
       </div>
 
       <div class="actions">
