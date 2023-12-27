@@ -10,9 +10,15 @@
       <%= content_tag(:div, flash[:alert], class:'error-message', :id => "flash_alert") if flash[:alert] %>
 
       <div class='form__fields-data'>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.email_field :email, autocomplete: "email", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :email, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
 
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class:"form__field" %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.password_field :password, autocomplete: "current-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :password, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
       </div>
 
       <div class="actions">

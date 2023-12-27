@@ -57,7 +57,7 @@
   }
 
   &__field {
-    margin: .3rem 0;
+    margin: .5rem 0;
     width: 17rem;
     height: 3rem;
     padding-left: 1rem;
@@ -65,15 +65,39 @@
     border: var(--border);
     outline: none;
     transition: box-shadow 250ms;
+    background-color: transparent;
 
-    &:focus {
-      box-shadow: 0 0 0 2px var(--color-secondary-rotate);
+    &-position {
+      position: relative;
+    }
+
+    &:focus ~ .form__label {
+      top: 6px;
+      left: 13px;
+      padding: 0 .2rem;
     }
 
     &-btn {
       height: 3rem;
       width: 17rem;
       margin: .3rem 0;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    background-color: var(--color-background);
+    color: var(--color-text-muted);
+    transform: translateY(-50%);
+    transition: .3s;
+    pointer-events: none;
+
+    &-notempty {
+      top: 6px;
+      left: 13px;
+      padding: 0 .2rem;
     }
   }
 
