@@ -4,6 +4,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ 'input', 'label' ]
 
+  connect() {
+    if (this.inputTarget.value != '') {
+      this.labelTarget.classList.add('form__label-notempty')
+    } else if (this.inputTarget.value == '') {
+      this.labelTarget.classList.remove('form__label-notempty')
+    }
+  }
+
   update() {
     if (this.inputTarget.value != '') {
       this.labelTarget.classList.add('form__label-notempty')

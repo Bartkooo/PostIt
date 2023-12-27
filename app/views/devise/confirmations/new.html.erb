@@ -9,7 +9,10 @@
       <%= render "devise/shared/error_messages", class:'error-message', resource: resource %>
 
       <div class='form__fields-data'>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:'form__field', placeholder:'Email' %>
+        <div class='form__field-position' data-controller='empty-input'>
+          <%= f.email_field :email, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
+          <%= f.label :email, class:"form__label", data: { target: "empty-input.label" } %>
+        </div>
       </div>
 
       <div class="actions">
