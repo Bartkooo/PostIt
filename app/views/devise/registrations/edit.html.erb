@@ -34,10 +34,9 @@
           <% end %>
 
           <div class='form__field-position' data-controller='empty-input'>
-            <%= f.password_field :password, autocomplete: "new-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" }, style:'margin-bottom: 0;' %>
+            <%= f.password_field :password, autocomplete: "new-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
             <%= f.label :new_password, class:"form__label", data: { target: "empty-input.label" } %>
           </div>
-          <i style='color: var(--color-text-muted); font-size: var(--font-size-xs);'>leave blank if you don't want to change it</i><br />
 
           <div class='form__field-position' data-controller='empty-input'>
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form__field", data: { action: "change->empty-input#update", target: "empty-input.input" } %>
