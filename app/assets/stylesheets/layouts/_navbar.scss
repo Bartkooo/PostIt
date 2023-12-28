@@ -53,22 +53,6 @@
     }
   }
 
-  &__link {
-    font-weight: 700;
-    color: var(--color-text-header);
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: var(--color-text-header);
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-      text-decoration-color: var(--color-secondary-rotate);
-      cursor: pointer;
-    }
-  }
-
   &__toggle {
     @include media(tabletAndUp) {
       display: none;
