@@ -51,13 +51,17 @@
   </div>
 
   <div class='post__footer'>
-    <% if signed_in? && !Like.liked?(current_user.id, post.id) %>
-      <%= link_to 'Like', likes_create_path(ids: {id1: current_user.id, id2: post.id}, anchor: dom_id(post)), class:'post__action' %>
-    <% elsif signed_in? && Like.liked?(current_user.id, post.id) %>
-      <%= link_to 'Unlike', likes_destroy_path(like_id: Like.find_like_id(current_user.id, post.id), anchor: dom_id(post)), class:'post__action post__action-clicked' %>
-    <% end %>
+    <div class="post__action">
+      <% if signed_in? && !Like.liked?(current_user.id, post.id) %>
+        <%= link_to image_tag('like-black.png', width: 25, height: 25), likes_create_path(ids: {id1: current_user.id, id2: post.id}, anchor: dom_id(post)) %>
+      <% elsif signed_in? && Like.liked?(current_user.id, post.id) %>
+        <%= link_to image_tag('like-green.png', width: 25, height: 25), likes_destroy_path(like_id: Like.find_like_id(current_user.id, post.id), anchor: dom_id(post)) %>
+      <% end %>
+    </div>
     <div class='post__line'></div>
-    <%= link_to "Comment", post, class:'post__action' %>
+    <div class="post__action">
+      <%= link_to image_tag('comment.png', width: 25, height: 25), post %>
+    </div>
   </div>
 
 </div>

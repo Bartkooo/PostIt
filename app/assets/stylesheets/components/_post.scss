@@ -71,19 +71,12 @@
 
   &__action {
     width: 50%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: var(--space-xs);
     color: var(--color-text-header);
     cursor: pointer;
-
-    &:hover {
-      color: var(--color-text-muted);
-    }
-
-    &-clicked {
-      color: var(--color-secondary-rotate);
-      font-weight: bold;
-    }
   }
 
   &__line {
