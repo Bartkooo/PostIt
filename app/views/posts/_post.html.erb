@@ -34,12 +34,20 @@
     <% if post.body.length > 430 %>
       <div class='help-link' data-action="click->read-more#update" data-read-more-target='button'>Read more...</div>
     <% end %>
-    <% if post.likes.count > 0 %>
-      <div class='post__body-likes'>
+    <div style='display: flex; gap: .5rem;'>
+      <% if post.likes.count > 0 %>
+        <div class='post__body-likes'>
         <%= post.likes.count %>
         <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+      <% if post.comments.count > 0 %>
+        <div class='post__body-likes'>
+          <%= post.comments.count %>
+          <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class='post__footer'>
