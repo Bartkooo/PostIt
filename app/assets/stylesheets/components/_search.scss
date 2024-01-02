@@ -7,14 +7,17 @@
   position: relative;
 
   &-input {
-    border: 0;
-    border-bottom: var(--border);
+    border: var(--border);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-small);
     font-size: var(--font-size-xl);
+    outline: none;
     width: auto;
     height: 3rem;
     padding: 0 .5rem;
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-secondary-rotate);
+    }
   }
 
   &-button {
